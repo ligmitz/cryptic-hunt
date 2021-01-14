@@ -1,16 +1,13 @@
 # Cryptic Hunt
-An online cryptic hunt platform made in Django
+Cryptic Hunt for Prody - 2021
 
 ## Requirements
-Python3, Django 1.11
+Python3+ , Django 1.11.17+
 
 ## Installation
-Create a virtual environment(recommended.
-Go to the src/ and do:
-
-```pip install -r requirements.txt```
-Later, to run the server:
-``` python manage.py runserver ```
-
-To create a superuser:
-``` python manage.py createsuperuser ```
+- ```python -m venv /srv/envname_here```
+- ```cd src```
+- ```source /srv/envname_here/bin/activate```
+- ```pip install -r requirements.txt```
+- ```python manage.py createsuperuser```
+- ```python manage.py runserver```
