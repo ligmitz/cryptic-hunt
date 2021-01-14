@@ -1,0 +1,40 @@
+body {
+  padding-top: 70px;
+}
+
+.img-responsive{
+    margin: 0 auto;
+}
+
+.card {
+	margin: 0 auto;
+    box-shadow: 0 8px 12px 4px rgba(0,0,0,0.3);
+    background: #fefefe;
+    display: flex;
+}
+
+.card-content{
+	padding: 10px;
+}
+
+.card-img{
+	width: 50%;
+}
+
+
+.question{
+	padding: 20px;
+	width: 50%;
+}
+
+.title{
+	text-align: center;
+	font-size: 2em;
+}
+
+.sub-title{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 1.25em;
+}

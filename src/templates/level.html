@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %} Level {{level.level_id}} {% endblock %} {% block content %} {% load crispy_forms_tags %}
+	
+	<div class="card">
+
+	<!-- HINT -->
+	<!-- {{level.hint}} -->	
+	
+    {% if level.image.url is not None %}
+   <div class="card-img"> <img src={{level.image.url}} class="img-responsive"> </div>{% endif %}
+
+    <div class="question">
+    	<div class="title"> Level {{level.level_id}} </div>
+    	<div class="sub-title"> {{level.question}} </div>
+    <form method="POST" action=""> {% csrf_token %} {{form|crispy}}
+        <input type="submit" value="submit" name="" class="btn btn-primary">
+    </form>
+</div>
+    </div>
+</div>
+
+{% endblock %}

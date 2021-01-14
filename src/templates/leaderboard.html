@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-12">
+  <h2>Standings</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Level</th>
+      </tr>
+    </thead>
+{% for user in queryset %}
+
+    <tbody>
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td data-toggle="tooltip" title="{{user.profile.get_name}}"><span>{{user.username}}</span></td>
+        <td>{{user.profile.get_level}}</td>
+      </tr>
+  </tbody>
+
+{%endfor%}
+  </table>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+
+{% endblock %}
