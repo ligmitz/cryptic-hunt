@@ -33,8 +33,8 @@ urlpatterns = [
         name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(template_name = 'home.html'),
         name='logout'),
-    url(r'^$',home),
-    url(r'^rules/$',rules,name="rules")
+    url(r'^$',home, name='home'),
+    url(r'^rules/$',rules, name="rules")
 
 ]
 

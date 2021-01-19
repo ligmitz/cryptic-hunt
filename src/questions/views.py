@@ -7,9 +7,12 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.utils import timezone
+import logging
 
 
 from django.urls import reverse
+
+logger = logging.getLogger("questions.view")
 
 class Hunt(LoginRequiredMixin, View):
 	""" The Game """
@@ -51,6 +54,7 @@ class Hunt(LoginRequiredMixin, View):
 		if form.is_valid():
 			ans = form.cleaned_data.get('answer')
 			if ans == cur_level.answer:
+				logger.info("Levelcleared")
 				level_number = cur_user.profile.current_level.level_id
 				try:
 					cur_user.profile.current_level = Level.objects.get(level_id = level_number + 1)
@@ -58,5 +62,8 @@ class Hunt(LoginRequiredMixin, View):
 					cur_user.profile.save()
 				except:
 					pass
+				if cur_user.profile.current_level.level_id == 3:
+						logger.error("wrong")
+						return redirect('home')
 
 		return redirect(reverse('hunt'))

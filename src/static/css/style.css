@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 body {
   padding-top: 70px;
+  background-color: #000
 }
 
-.img-responsive{
+.img-responsive {
     margin: 0 auto;
 }
 
@@ -13,28 +16,76 @@ body {
     display: flex;
 }
 
-.card-content{
+.card-content {
 	padding: 10px;
 }
 
-.card-img{
+.card-img {
 	width: 50%;
 }
 
 
-.question{
+.question {
 	padding: 20px;
 	width: 50%;
 }
 
-.title{
+.title {
 	text-align: center;
 	font-size: 2em;
 }
 
-.sub-title{
+.sub-title {
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font-size: 1.25em;
+}
+
+.navbar-text-brand {
+	color: white;
+	font-weight: 900;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-text-common a {
+	color: white;
+	font-weight: 600;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-text-common a:hover,.navbar-text-common a:active,.navbar-text-common a:focus {
+	background-color: #16e16e !important;
+}
+
+a:focus,a:hover {
+	color: white !important;
+}
+
+.nav .open {
+	background-color: #16e16e !important;
+}
+
+.navbar-text-common .logout {
+	color: white !important;
+	background-color: #333;
+	font-weight: 600;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.dropdown-menu li a {
+	background-color: #333 !important;
+	color: white !important;
+}
+
+.dropdown-menu {
+	background-color: #333 !important;
+}
+
+.navbar-toggle {
+	background-color: #fff !important;
+}
+
+.navbar-toggle .icon-bar {
+	background-color: #000 !important;
 }
