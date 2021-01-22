@@ -3,13 +3,13 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<h2>Login</h2>
+<h2 style="color: #16e16e">Login</h2>
 <hr>
   <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary btn-custom">Login</button>
   </form>
-  <p style="padding-top: 10px">Don't have any account? <a href="/register/"> Register </a> </p>
+  <p style="padding-top: 10px; color: #efefef">Don't have any account ? <a href="/register/" style="color: #16e16e;"> Register </a> </p>
 
   {%endblock%}
