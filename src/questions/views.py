@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Level
 from .forms import LevelForm
 from django.views import View
@@ -55,6 +56,7 @@ class Hunt(LoginRequiredMixin, View):
 			ans = form.cleaned_data.get('answer')
 			if ans == cur_level.answer:
 				logger.info("Levelcleared")
+				messages.success(request, f"Level {cur_level.level_id} cleared")
 				level_number = cur_user.profile.current_level.level_id
 				try:
 					cur_user.profile.current_level = Level.objects.get(level_id = level_number + 1)
@@ -62,8 +64,7 @@ class Hunt(LoginRequiredMixin, View):
 					cur_user.profile.save()
 				except:
 					pass
-				if cur_user.profile.current_level.level_id == 3:
-						logger.error("wrong")
-						return redirect('home')
+			else:
+				messages.warning(request,"Wrong Answer")
 
 		return redirect(reverse('hunt'))

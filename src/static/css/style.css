@@ -133,6 +133,10 @@ a:focus,a:hover {
 	font-family: 'Montserrat', sans-serif;
 }
 
+.navbar-brand {
+	color: #0082af !important;
+}
+
 @media only screen and (max-width: 680px){
 	.row {
 		width: 90%;
