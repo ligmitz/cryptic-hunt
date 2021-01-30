@@ -35,10 +35,12 @@ class Hunt(LoginRequiredMixin, View):
 			return render(request,'home.html')
 
 		cur_level = cur_user.profile.current_level
+		user_is_cleared = cur_user.profile.is_cleared
 		form = self.form_class()
 		context = {
-			'level' : cur_level,
-			'form' : form, 
+			'level': cur_level,
+			'cleared': user_is_cleared,
+			'form': form,
 		}
 		return render(request,'level.html',context)
 
@@ -58,12 +60,16 @@ class Hunt(LoginRequiredMixin, View):
 				logger.info("Levelcleared")
 				messages.success(request, f"Level {cur_level.level_id} cleared")
 				level_number = cur_user.profile.current_level.level_id
+				
+				if level_number == 3:
+					cur_user.profile.is_cleared = True
+
 				try:
 					cur_user.profile.current_level = Level.objects.get(level_id = level_number + 1)
 					cur_user.profile.current_level_time = timezone.now()
-					cur_user.profile.save()
 				except:
 					pass
+				cur_user.profile.save()
 			else:
 				messages.warning(request,"Wrong Answer")
 

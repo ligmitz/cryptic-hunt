@@ -17,6 +17,7 @@ class Profile(models.Model):
 	current_level_time = models.DateTimeField(default=timezone.now)
 	is_banned = models.BooleanField(default = False)
 	is_admin = models.BooleanField(default = False)
+	is_cleared = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.user.username

@@ -1,5 +1,14 @@
 {% extends "base.html" %} {% block title %} Cryptic Hunt - level {{level.level_id}} {% endblock %} {% block content %} {% load crispy_forms_tags %}
-	<div class="card">
+{% if cleared %}
+<div class="col-md-12">
+	<h2 style="color: #16e16e;"> Congratulations ! </h2>
+	<hr>
+	<p class="rules">
+		You have cleared all the levels.
+	</p>
+</div>
+{% else %}
+<div class="card">
 
 	<!-- HINT -->
     <!-- {{level.hint}} -->	
@@ -16,4 +25,6 @@
     </div>
     
     </div>
+{% endif %}
+
 {% endblock %}
