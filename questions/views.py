@@ -8,6 +8,8 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.utils import timezone
+from .decorators.hunt_is_active import hunt_is_active
+from django.utils.decorators import method_decorator
 import logging
 
 
@@ -24,6 +26,7 @@ class Hunt(LoginRequiredMixin, View):
 	form_class = LevelForm
 
 
+	@method_decorator(hunt_is_active)
 	def get(self, request, *args, **kwargs):
 		""" 
 		GET Request 
@@ -45,6 +48,7 @@ class Hunt(LoginRequiredMixin, View):
 		return render(request,'level.html',context)
 
 
+	@method_decorator(hunt_is_active)
 	def post(self,request, *args, **kwargs):
 		"""
 		POST request
