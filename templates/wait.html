@@ -1,0 +1,8 @@
+{% extends "base.html" %} 
+{% block title %} Cryptic Hunt{% endblock %}
+
+{% block content %}
+<div class="rules">
+    <span>The hunt will start at {{ time|date:"D j M Y"}} at {{ time|time:"g:i:s a"}}</span>
+</div>
+{%endblock%}
