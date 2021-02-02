@@ -12,17 +12,19 @@ class SignUpForm(UserCreationForm):
 	"""
 	# Insitute Name
 	institute = forms.CharField(max_length=255)
+	phoneNumber = forms.IntegerField()
 
 	def __init__(self, *args, **kwargs):
 		super(SignUpForm, self).__init__(*args, **kwargs)
 		# Making name required
 		self.fields['email'].required = True
+		self.fields['phoneNumber'].required = True
 		self.fields['first_name'].required = True
 
 	class Meta:
 		model = User
 		# The fields shown in the form
-		fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'institute' )
+		fields = ('first_name', 'last_name', 'username', 'phoneNumber','email', 'password1', 'password2', 'institute' )
 
 	def clean_email(self):
 		email = self.cleaned_data.get('email')
