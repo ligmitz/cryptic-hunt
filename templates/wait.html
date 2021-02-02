@@ -1,10 +1,10 @@
 {% extends "base.html" %} 
-{% block title %} Cryptic Hunt{% endblock %}
+{% block title %} Abhedya - quiz {% endblock %}
 
 {% block content %}
 <div class="rules">
-    <span>The hunt is scheduled from {{ publish_time|date:"D j M Y"}}, {{ publish_time|time:"g:i:s a"}} to
-        {{ deactivate_time|date:"D j M Y"}}, {{ deactivate_time|time:"g:i:s a"}} .
+    <span style="font-size:large;">The hunt is scheduled from {{ publish_time|date:"D j M Y"}}, {{ publish_time|time:"g:i:s a"}} to
+        {{ deactivate_time|date:"D j M Y"}}, {{ deactivate_time|time:"g:i:s a"}}
     </span>
 </div>
 {%endblock%}

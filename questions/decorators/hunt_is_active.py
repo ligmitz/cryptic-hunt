@@ -5,7 +5,7 @@ from django.utils import timezone
 import pytz
 
 PUBLISH_DATE = datetime(year=2021, month=2, day=11, hour=0, minute=0, second=0)
-DEACTIVATE_DATE = datetime(year=2021, month=2, day=12, hour=0, minute=0, second=0)
+DEACTIVATE_DATE = datetime(year=2021, month=2, day=11, hour=23, minute=59, second=59)
 
 def hunt_is_active(function):
     def wrap(request, *args, **kwargs):
