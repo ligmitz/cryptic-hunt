@@ -181,6 +181,7 @@ a:focus,a:hover {
 
 .general-links:hover {
 	color: #0072ab !important;
+	text-decoration: none;
 }
 
 @media only screen and (max-width: 680px){
