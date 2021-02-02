@@ -24,6 +24,7 @@ def register(request):
 			user = form.save()
 			user.refresh_from_db()  # load the profile instance created by the signal
 			user.profile.institute = form.cleaned_data.get('institute')
+			user.profile.phoneNumber = form.cleaned_data.get('phoneNumber')
 			user.save()
 			raw_password = form.cleaned_data.get('password1')
 			user = authenticate(username=user.username, password=raw_password)
