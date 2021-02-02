@@ -134,7 +134,53 @@ a:focus,a:hover {
 }
 
 .navbar-brand {
+	color: #16e16e !important;
+}
+
+.navbar-brand:hover {
 	color: #0082af !important;
+}
+
+.home{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20%;
+}
+
+.cryptic-title {
+	margin-top: 50px;
+	color: #16e16e;
+	font-size: 5vh;
+	text-align: center;
+}
+
+.home .guidelines {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	color: white;
+	font-size: 2.5vh;
+}
+
+.rules .guidelines {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	color: white;
+	font-size: 2.5vh;
+}
+
+
+.general-links {
+	color: #0082af;
+}
+
+.general-links:hover {
+	color: #0072ab !important;
 }
 
 @media only screen and (max-width: 680px){

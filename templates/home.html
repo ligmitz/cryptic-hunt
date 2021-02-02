@@ -1,9 +1,35 @@
 {% extends "base.html" %}
-
-{% block title %} Home {%endblock%}
+{% load static %}
+{% block title %} Abhedya - Home {%endblock%}
 
 {% block content %}
-
+<div class="container">
+    <div class="home">
+        <div class="prody-logo">
+            <img src="{% static 'pg.png' %}" alt="">
+        </div>
+        <h1 class="cryptic-title">
+            Abhedya - Prodyogiki 2021
+        </h1>
+        <ul type="dot" class="guidelines">
+            <li>
+                Use of desktop/laptop is recommended.
+            </li>
+            <li>
+                The levels vary on degree of difficulty.
+            </li>
+            <li>
+                The quiz will remain active from 11th Feb, 2021 0000 hrs to 11th Feb, 2021 2359 hrs.
+            </li>
+            <li>
+                The leaderboard will be used as a standard for judgement criteria.
+            </li>
+            <li>
+                Read the <a href="https://docs.google.com/presentation/d/1na-iOIlKuF3XnvRnjBQslMrRs0DPWytj3uP3-F2-KG8/edit?usp=sharing" class="general-links">abstract</a> carefully for rules and regulations.
+            </li>
+        </ul>
+    </div>
+</div>
 
 
 {%endblock%}
