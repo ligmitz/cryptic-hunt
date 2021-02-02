@@ -3,6 +3,8 @@
 
 {% block content %}
 <div class="rules">
-    <span>The hunt will start at {{ time|date:"D j M Y"}} at {{ time|time:"g:i:s a"}}</span>
+    <span>The hunt is scheduled from {{ publish_time|date:"D j M Y"}}, {{ publish_time|time:"g:i:s a"}} to
+        {{ deactivate_time|date:"D j M Y"}}, {{ deactivate_time|time:"g:i:s a"}} .
+    </span>
 </div>
 {%endblock%}
