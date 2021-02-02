@@ -13,6 +13,7 @@ class Profile(models.Model):
 
 	user = models.OneToOneField(User, on_delete = models.CASCADE)
 	institute = models.CharField(max_length=255, null=True)
+	phoneNumber = models.IntegerField(default=0)
 	current_level = models.ForeignKey(Level, default = Level.DEFAULT_LEVEL,on_delete=models.CASCADE)
 	current_level_time = models.DateTimeField(default=timezone.now)
 	is_banned = models.BooleanField(default = False)

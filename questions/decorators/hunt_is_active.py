@@ -14,9 +14,9 @@ def hunt_is_active(function):
         local_publish_date = tz.localize(PUBLISH_DATE)
         local_deactivate_date = tz.localize(DEACTIVATE_DATE)
         local_current_date = tz.localize(datetime.now())
-        cur_user = request.user.username
+        cur_user = request.user
 
-        if cur_user == "admin":
+        if cur_user.is_staff:
             return function(request, *args, **kwargs)
         else:
             if ((local_current_date >= local_publish_date) and (local_current_date <= local_deactivate_date)):
