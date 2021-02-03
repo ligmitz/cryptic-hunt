@@ -16,6 +16,7 @@ import logging
 from django.urls import reverse
 
 logger = logging.getLogger("questions.view")
+FINAL_LEVEL = 10
 
 class Hunt(LoginRequiredMixin, View):
 	""" The Game """
@@ -65,7 +66,7 @@ class Hunt(LoginRequiredMixin, View):
 				messages.success(request, f"Level {cur_level.level_id} cleared")
 				level_number = cur_user.profile.current_level.level_id
 				
-				if level_number == 3:
+				if level_number == FINAL_LEVEL:
 					cur_user.profile.is_cleared = True
 
 				try:
