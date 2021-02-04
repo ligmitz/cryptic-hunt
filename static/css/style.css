@@ -33,6 +33,9 @@ body {
 	width: 50%;
 }
 
+.card-hint {
+	font-size: 15px
+}
 
 .question {
 	padding: 20px;

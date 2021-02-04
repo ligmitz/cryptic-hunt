@@ -9,15 +9,14 @@
 </div>
 {% else %}
 <div class="card">
-
-	<!-- HINT -->
-    <!-- {{level.hint}} -->	
-    
     <div class="question">
     	<div class="title"> Level {{level.level_id}} </div>
         <div class="sub-title"> {{level.question}} </div>
         {% if level.image.url is not None %}
         <div class="card-img"> <img src={{level.image.url}} class="img-responsive"> </div>
+        {% endif %}
+        {% if level.hint is not None %}
+        <div class="card-hint"> <span style="color: #16e16e">Hint:</span> {{level.hint}}</div>
         {% endif %}
         <form method="POST" action=""> {% csrf_token %} {{form|crispy}}
             <input type="submit" value="SUBMIT" name="" class="btn btn-primary btn-custom">
