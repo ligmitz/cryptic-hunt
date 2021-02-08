@@ -10,7 +10,6 @@
       HUNT IS ACTIVE
     </div>
   </center>
-  {% endif %}
   <h2 class="standings-head" style="color: #16e16e;">Standings</h2>
   <table class="table table-striped">
     <thead>
@@ -32,6 +31,11 @@
 
 {%endfor%}
   </table>
+  {% else %}
+    <div style="color: #16e16e;font-size: 4vh;">
+      Leader board will be active once the hunt starts!
+    </div>
+  {% endif %}
 </div>
 
 <script>
