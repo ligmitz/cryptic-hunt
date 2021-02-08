@@ -4,12 +4,11 @@ services:
   app:
     volumes:
       - static:/static
+      - db:/db.sqlite3
     build:
       context: .
     ports: 
       - "8000:8000"
-    volumes: 
-      - db:/db.sqlite3
   web:
     build: ./nginx
     volumes:
