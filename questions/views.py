@@ -16,7 +16,7 @@ import logging
 from django.urls import reverse
 
 logger = logging.getLogger("questions.view")
-FINAL_LEVEL = 10
+FINAL_LEVEL = 11
 
 class Hunt(LoginRequiredMixin, View):
 	""" The Game """
