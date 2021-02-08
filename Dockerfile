@@ -8,7 +8,7 @@ RUN pip install -r requirements.txt
 
 COPY . /app/
 
-EXPOSE 8080
+COPY entrypoint.sh /app/
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+ENTRYPOINT [ "sh", "entrypoint.sh" ]
 
