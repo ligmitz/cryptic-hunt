@@ -7,10 +7,18 @@ services:
       - db:/files
     build:
       context: .
+      args:
+        PYTHON_VERSION: 3.7
+
     ports: 
       - "8000:8000"
+
   web:
-    build: ./nginx
+
+    build:
+      context: ./nginx
+      args:
+        NGINX_VERSION: stable
     volumes:
       - static:/static
     ports:
