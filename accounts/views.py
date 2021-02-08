@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 
 from django.urls import reverse
-from questions.lib.actions import is_active_period
+from questions.lib.actions import show_leaderboard 
 # Create your views here.
 
 from .forms import SignUpForm
@@ -49,7 +49,7 @@ def leaderboard(request):
 	"""
 	Returns the leadboard, sorted first with level (desc) then time (asc)
 	"""
-	active = is_active_period()
+	active = show_leaderboard()
 
 	queryset = User.objects.order_by('-profile__current_level','profile__current_level_time').exclude(is_staff=True)
 	context = {
