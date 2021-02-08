@@ -4,7 +4,7 @@ services:
   app:
     volumes:
       - static:/static
-      - db:/db.sqlite3
+      - db:/files
     build:
       context: .
     ports: 
