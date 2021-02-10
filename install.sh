@@ -5,9 +5,7 @@ WORKING_DIR="/opt/iste/abhedya"
 
 if [ -d $WORKING_DIR ]; then
     echo "Found previous install. Stopping containers"
-    cd $WORKING_DIR
-    cd docker
-    docker-compose down
+    docker-compose -f "$WORKING_DIR/docker" down
 fi
 
 echo "Copying the service file"
