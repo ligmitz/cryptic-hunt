@@ -3,3 +3,5 @@
 /static_cdn/*
 **/__pycache__/
 venv/
+
+.vscode
