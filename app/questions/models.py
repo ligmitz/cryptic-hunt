@@ -8,9 +8,9 @@ class Level(models.Model):
 	DEFAULT_LEVEL = 1
 	
 	level_id = models.AutoField(primary_key=True) 
-	title = models.CharField(max_length=100)
-	question = models.CharField(max_length=255)
-	answer = models.CharField(max_length=120)
+	title = models.CharField(max_length=100, default="NA")
+	question = models.CharField(max_length=255, default="NA")
+	answer = models.CharField(max_length=120, default="NA")
 	hint = models.CharField(max_length=255, null=True, blank=True)
 	
 	image = models.ImageField(
