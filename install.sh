@@ -3,10 +3,14 @@ cd "$(dirname "$0")"
 
 WORKING_DIR="/opt/iste/abhedya"
 
-cp -rf . -t $WORKING_DIR
 
 echo "Copying the service file"
 cp abhedya.service /etc/systemd/system/
+
+echo "Creating install dir"
+mkdir -p $WORKING_DIR
+
+cp -rf . -t $WORKING_DIR
 
 cd $WORKING_DIR
 docker-compose up -d -f docker/docker-compose.yml
@@ -17,6 +21,6 @@ echo "Enabling the service"
 systemctl enable abhedya.service
 
 echo "Starting the service"
-systemctl start abjedya.service
+systemctl start abhedya.service
 
 
