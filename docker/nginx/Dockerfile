@@ -1,6 +1,10 @@
 ARG NGINX_VERSION
 FROM nginx:${NGINX_VERSION}
 
-RUN rm /etc/nginx/conf.d/default.conf
+WORKDIR /main
 
-COPY nginx.conf /etc/nginx/conf.d/
+RUN apt-get update && apt-get install --yes certbot python-certbot-nginx vim netcat less python3 apache2-utils
+
+COPY run nginx.conf ./
+
+CMD ["bash", "run"]

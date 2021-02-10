@@ -1,0 +1,24 @@
+#!/bin/bash
+
+rm -f /etc/nginx/conf.d/default.conf
+
+# Update server name in config file
+echo "SETUP : Updating server name"
+sed "s/\${SSL_DOMAIN}/\"$SSL_DOMAIN\"" nginx.conf
+
+cp nginx.conf /etc/nginx/conf.d/
+echo "SETUP : Saved NGINX config"
+
+
+while ! /etc/init.d/nginx restart; do
+    echo 'SETUP : restarting nginx...'
+    sleep 1
+done
+
+while true; do
+    certbot -n --nginx -d "$SSL_DOMAIN" -m "teamiste@gmail.com" --agree-tos --redirect
+
+    # Reload nginx to load new config by certbot
+    /etc/init.d/nginx reload
+    sleep 40000
+done

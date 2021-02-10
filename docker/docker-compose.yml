@@ -7,13 +7,12 @@ services:
       - db:/files
     build:
       context: ../app
-      #dockerfile: docker/Dockerfile
       args:
         PYTHON_VERSION: 3.7
     environment:
       - DOCKER=True
 
-    ports: 
+    ports:
       - "8000:8000"
 
   web:
@@ -22,13 +21,17 @@ services:
       context: ./nginx
       args:
         NGINX_VERSION: stable
+    environment:
+      SSL_DOMAIN: abhedya.istenith.com
     volumes:
       - static:/static
+      - letsencrypt:/etc/letsencrypt;
     ports:
       - "0.0.0.0:80:80"
     depends_on: 
       - app
 
 volumes:
+  letsencrypt:
   static:
   db:
