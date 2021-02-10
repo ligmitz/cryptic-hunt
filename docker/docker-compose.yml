@@ -6,9 +6,11 @@ services:
       - static:/static
       - db:/files
     build:
-      context: .
+      context: ../app/docker
       args:
         PYTHON_VERSION: 3.7
+    environment:
+      - DOCKER=True
 
     ports: 
       - "8000:8000"
@@ -22,7 +24,7 @@ services:
     volumes:
       - static:/static
     ports:
-      - "80:80"
+      - "0.0.0.0:80:80"
     depends_on: 
       - app
 
