@@ -15,10 +15,10 @@ while ! /etc/init.d/nginx restart; do
     sleep 1
 done
 
+certbot -n --nginx -d "$SSL_DOMAIN" -m "teamiste@gmail.com" --agree-tos --redirect
 while true; do
-    certbot -n --nginx -d "$SSL_DOMAIN" -m "teamiste@gmail.com" --agree-tos --redirect
-
     # Reload nginx to load new config by certbot
     /etc/init.d/nginx reload
     sleep 40000
+    certbot renew -n --nginx -d "$SSL_DOMAIN" -m "teamiste@gmail.com" --agree-tos --redirect
 done
