@@ -6,7 +6,8 @@ services:
       - static:/static
       - db:/files
     build:
-      context: ../app/docker
+      context: ../app
+      #dockerfile: docker/Dockerfile
       args:
         PYTHON_VERSION: 3.7
     environment:
