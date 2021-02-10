@@ -9,8 +9,8 @@ COPY requirements.txt /app/
 
 RUN pip install -r requirements.txt
 
-COPY ../ .
+COPY . /app/
 
-COPY entrypoint.sh /app/
+COPY run.sh /app/
 
-
+ENTRYPOINT [ "sh", "run.sh" ]

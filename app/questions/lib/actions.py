@@ -17,7 +17,7 @@ def is_active_period():
 
 def show_leaderboard():
 
-    if ((local_current_date >= local_publish_date):
+    if ((local_current_date >= local_publish_date)):
         return True
 
     return False
