@@ -14,7 +14,7 @@ cp abhedya.service /etc/systemd/system/
 echo "Creating install dir"
 mkdir -p $WORKING_DIR
 
-cp -rf . -t $WORKING_DIR
+rsync -av --progress . $WORKING_DIR/ --exclude .git --exclude venv
 
 cd $WORKING_DIR
 
