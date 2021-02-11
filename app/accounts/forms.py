@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from captcha.fields import CaptchaField
 
 # Import Model
 from .models import Profile
@@ -10,6 +10,7 @@ class SignUpForm(UserCreationForm):
 	"""
 	A sign up form for a new user
 	"""
+	captcha = CaptchaField()
 	# Insitute Name
 	institute = forms.CharField(max_length=255)
 	phoneNumber = forms.IntegerField(required=True)
@@ -23,7 +24,7 @@ class SignUpForm(UserCreationForm):
 	class Meta:
 		model = User
 		# The fields shown in the form
-		fields = ('first_name', 'last_name', 'username', 'email', 'phoneNumber', 'password1', 'password2', 'institute' )
+		fields = ('first_name', 'last_name', 'username', 'email', 'phoneNumber', 'password1', 'password2', 'institute', 'captcha' )
 
 	def clean_email(self):
 		email = self.cleaned_data.get('email')

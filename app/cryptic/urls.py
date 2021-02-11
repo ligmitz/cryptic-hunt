@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.urls import path, include
 from django.contrib import admin
 from accounts.views import register, leaderboard, home, rules
 from questions.views import Hunt
@@ -22,8 +23,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-
 urlpatterns = [
+    path('captcha/', include('captcha.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^register/$',register, name="register"),
     url(r'^leaderboard/$',leaderboard, name="leaderboard"),
