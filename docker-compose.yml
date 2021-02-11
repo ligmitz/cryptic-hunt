@@ -1,0 +1,23 @@
+version: '3.7'
+
+services: 
+  app:
+    volumes:
+      - static:/static
+      - db:/db.sqlite3
+    build:
+      context: .
+    ports: 
+      - "8000:8000"
+  web:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    depends_on: 
+      - app
+
+volumes:
+  static:
+  db:

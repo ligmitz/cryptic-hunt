@@ -1,5 +1,1 @@
-.vscode
 venv/
-*/__pycache__/
-README.md
-db.sqlite3
