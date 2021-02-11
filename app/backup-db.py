@@ -2,7 +2,7 @@ import sqlite3
 import os
 import os.path
 from datetime import datetime
-from app.cryptic.settings import DB_DIR
+from cryptic.settings import DB_DIR
 
 MAX_BACKUPS = 10
 
@@ -29,7 +29,7 @@ conn = sqlite3.connect(DB_PATH)
 
 BACKUP_NAME = f"backup-{datetime.utcnow().strftime('%Y-%m-%d-%H-%M')}.sqlite3"
 
-backup = sqlite3.backup(BACKUP_NAME)
+backup = sqlite3.connect(BACKUP_NAME)
 
 try:
     with backup:
