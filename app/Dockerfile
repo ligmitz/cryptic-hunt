@@ -16,6 +16,7 @@ COPY run.sh /app/
 
 COPY backup-db-cron /etc/cron.d/backup-db
 RUN chmod 0744 /etc/cron.d/backup-db
+RUN crontab /etc/cron.d/backup-db
 RUN service cron start
 
-ENTRYPOINT [ "sh", "run.sh" ]
+CMD run.sh
