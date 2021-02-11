@@ -3,7 +3,8 @@
 rm -f /etc/nginx/conf.d/default.conf
 
 # Update server name in config file
-sed "s/{{SSL_DOMAIN}}/\"$SSL_DOMAIN\"/" nginx.conf > nginx.conf
+sed "s/{{SSL_DOMAIN}}/\"$SSL_DOMAIN\"/" nginx.conf > nginx.conf.tmp
+mv -f nginx.conf.tmp nginx.conf
 echo "SETUP : Updated server name"
 
 cp nginx.conf /etc/nginx/conf.d/
