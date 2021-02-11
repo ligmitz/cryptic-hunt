@@ -2,10 +2,11 @@
 cd "$(dirname "$0")"
 
 WORKING_DIR="/opt/iste/abhedya"
+DOCKER_COMPOSE_PATH="$WORKING_DIR/docker/docker-compose.yml"
 
 if [ -d $WORKING_DIR ]; then
     echo "Found previous install. Stopping containers"
-    docker-compose -f "$WORKING_DIR/docker" down
+    docker-compose -f ${DOCKER_COMPOSE_PATH} down
 fi
 
 echo "Copying the service file"
