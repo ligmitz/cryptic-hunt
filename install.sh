@@ -3,6 +3,7 @@ cd "$(dirname "$0")"
 
 WORKING_DIR="/opt/iste/abhedya"
 DOCKER_COMPOSE_PATH="$WORKING_DIR/docker/docker-compose.yml"
+PATH="/usr/local/bin:$PATH"
 
 if [ -d $WORKING_DIR ]; then
     echo "Found previous install. Stopping containers"
