@@ -1,0 +1,2 @@
+echo "Generating dhparams"
+openssl dhparam -out docker/ssl/dhparam.pem 2048 /dev/null

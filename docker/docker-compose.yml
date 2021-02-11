@@ -25,7 +25,7 @@ services:
       SSL_DOMAIN: abhedya.istenith.com
     volumes:
       - static:/static
-      - letsencrypt:/etc/letsencrypt;
+      - ./ssl:/ssl
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
@@ -33,6 +33,5 @@ services:
       - app
 
 volumes:
-  letsencrypt:
   static:
   db:

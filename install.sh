@@ -18,6 +18,8 @@ rsync -av --progress . $WORKING_DIR/ --exclude .git --exclude venv
 
 cd $WORKING_DIR
 
+./gen-dhparams
+
 echo "Enabling the service"
 systemctl enable abhedya.service
 
