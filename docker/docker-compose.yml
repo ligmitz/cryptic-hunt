@@ -22,7 +22,7 @@ services:
       args:
         NGINX_VERSION: stable
     environment:
-      SSL_DOMAIN: abhedya.istenith.com
+      SSL_DOMAIN: abhedya-server.istenith.com
     volumes:
       - static:/static
       - ./ssl:/ssl
