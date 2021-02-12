@@ -43,7 +43,7 @@ conn = sqlite3.connect(DB_PATH)
 
 BACKUP_NAME = f"backup-{datetime.utcnow().strftime('%Y-%m-%d-%H-%M')}.sqlite3"
 BACKUP_PATH = os.path.join(BACKUP_DIR, BACKUP_NAME)
-log.debug("BACKUP PATH : ", BACKUP_PATH)
+log.debug("BACKUP PATH : %s", BACKUP_PATH)
 
 backup = sqlite3.connect(BACKUP_PATH)
 
