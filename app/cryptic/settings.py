@@ -17,8 +17,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 if "DOCKER" in os.environ:
     DB_DIR = "/files/"
+    MEDIA_ROOT = "/files/media" 
 else:
     DB_DIR = BASE_DIR
+    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
 
 # Quick-start development settings - unsuitable for production
@@ -153,7 +155,6 @@ STATICFILES_DIRS = [
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
 LOGIN_REDIRECT_URL = "/hunt/"
 
