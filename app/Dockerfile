@@ -19,4 +19,4 @@ RUN chmod 0744 /etc/cron.d/backup-db
 RUN crontab /etc/cron.d/backup-db
 RUN service cron start
 
-CMD run.sh
+ENTRYPOINT ["bash", "run.sh"]
