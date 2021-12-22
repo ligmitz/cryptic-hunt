@@ -1,7 +1,7 @@
 asgiref
 astroid
 dj-database-url
-Django
+Django==2.2.5
 django-crispy-forms
 gunicorn
 isort
