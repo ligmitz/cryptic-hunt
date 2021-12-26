@@ -13,8 +13,204 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="shortcut icon" type="image/png" href="{% static 'pg.png' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    body {
+        padding-top: 70px;
+        background-color: #000
+    }
+    
+    .img-responsive {
+        margin: 0 auto;
+    }
+    
+    .card {
+        margin: 0 auto;
+        box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.3);
+        background: #090909;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #efefef;
+        border: 1px solid #16e16e;
+        border-radius: 20px;
+    }
+    
+    .question .title {
+        color: #16e16e;
+    }
+    
+    .card-content {
+        padding: 10px;
+    }
+    
+    .card-img {
+        width: 50%;
+    }
+    
+    .card-hint {
+        font-size: 15px
+    }
+    
+    .question {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .title {
+        text-align: center;
+        font-size: 2em;
+    }
+    
+    .sub-title {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 1.25em;
+    }
+    
+    .navbar-text-brand {
+        color: white;
+        font-weight: 900;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .navbar-text-common a {
+        color: white;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .navbar-text-common a:hover,
+    .navbar-text-common a:active,
+    .navbar-text-common a:focus {
+        background-color: #16e16e !important;
+    }
+    
+    a:focus,
+    a:hover {
+        color: white !important;
+    }
+    
+    .navbar {
+        background-color: #000 !important;
+    }
+    
+    .nav .open {
+        background-color: #16e16e !important;
+    }
+    
+    .navbar-text-common .logout {
+        color: white !important;
+        background-color: #333;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .dropdown-menu li a {
+        background-color: #333 !important;
+        color: white !important;
+    }
+    
+    .dropdown-menu {
+        background-color: #333 !important;
+    }
+    
+    .navbar-toggle {
+        background-color: #fff !important;
+    }
+    
+    .navbar-toggle .icon-bar {
+        background-color: #000 !important;
+    }
+    
+    .form-control {
+        background-color: #101010 !important;
+        color: #efefef !important;
+    }
+    
+    .form-control:focus {
+        border-color: #16e16e;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(16, 225, 110, .6);
+    }
+    
+    .btn-custom {
+        background-color: #16e16e;
+        border-color: #16e16e;
+    }
+    
+    .btn-custom:hover {
+        background-color: #16e16e;
+        border-color: #16e16e;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(16, 225, 110, .6);
+    }
+    
+    .rules {
+        color: #fefefe;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .navbar-brand {
+        color: #16e16e !important;
+    }
+    
+    .navbar-brand:hover {
+        color: #0082af !important;
+    }
+    
+    .home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20%;
+    }
+    
+    .cryptic-title {
+        margin-top: 50px;
+        color: #16e16e;
+        font-size: 5vh;
+        text-align: center;
+    }
+    
+    .home .guidelines {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        color: white;
+        font-size: 2.5vh;
+    }
+    
+    .rules .guidelines {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        color: white;
+        font-size: 2.5vh;
+    }
+    
+    .general-links {
+        color: #0082af;
+    }
+    
+    .general-links:hover {
+        color: #0072ab !important;
+        text-decoration: none;
+    }
+    
+    @media only screen and (max-width: 680px) {
+        .row {
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 5%;
+        }
+    }
+</style>
 
 <body>
     <!-- Fixed navbar -->
@@ -54,9 +250,6 @@
             <!--/.nav-collapse -->
         </div>
     </nav>
-    <div>
-        <img class="logo" src="{% static 'images/yoda.jpeg' %}" alt="logo.png">
-    </div>
     <div class="container">
         <div class="row">
             {% if messages %} {% for message in messages %}
