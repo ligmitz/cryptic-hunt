@@ -1,15 +1,19 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %} Abhedya - Home {%endblock%}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block title %} Abhedya - Home {%endblock%} {% block content %}
+<style>
+    h1.cryptic-title {
+        font-family: 'Mystery Quest', cursive;
+        font-size: 10vh;
+        color: #fff;
+        text-shadow: 1px 5px 5px #000;
+    }
+</style>
 <div class="container">
     <div class="home">
         <div class="prody-logo">
             <img src="{% static 'pg.png' %}" alt="">
         </div>
-        <h1 class="cryptic-title">
-            Abhedya - Prodyogiki 2021
+        <h1 class="cryptic-title" id="cryptic-title">
+            Chakravyou
         </h1>
         <ul type="dot" class="guidelines">
             <li>

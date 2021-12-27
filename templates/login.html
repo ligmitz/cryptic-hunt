@@ -1,15 +1,11 @@
-{% extends "base.html" %}
-{% block title %} Abhedya - login {% endblock %}
-{% block content %}
-{% load crispy_forms_tags %}
+{% extends "base.html" %} {% block title %} Abhedya - login {% endblock %} {% block content %} {% load crispy_forms_tags %}
 
-<h2 style="color: #16e16e">Login</h2>
+<h2 style="color: var(--green)">Login</h2>
 <hr>
-  <form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
+<form method="post">
+    {% csrf_token %} {{ form|crispy }}
     <button type="submit" class="btn btn-primary btn-custom">Login</button>
-  </form>
-  <p style="padding-top: 10px; color: #efefef">Don't have any account ? <a href="/register/" style="color: #16e16e;"> Register </a> </p>
-  <p style="padding-top: 10px; color: #efefef">Forgot Password ? Contact <a href="mailto: iste@nith.ac.in" style="color: #16e16e;"> Team ISTE </a> </p>
-  {%endblock%}
+</form>
+<p style="padding-top: 10px; color: #efefef">Don't have any account ? <a href="/register/" style="color: var(--green);"> Register </a> </p>
+<p style="padding-top: 10px; color: #efefef">Forgot Password ? Contact <a href="mailto: iste@nith.ac.in" style="color: var(--green);"> Team ISTE </a> </p>
+{%endblock%}

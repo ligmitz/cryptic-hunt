@@ -1,47 +1,118 @@
-{% extends "base.html" %}
-
-{% block title %} Abhedya - leaderboard {% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %} Abhedya - leaderboard {% endblock %} {% block content %}
+<style>
+    input.search_filter {
+        width: 30%;
+        min-width: 200px;
+        margin-left: 20px;
+        border: none;
+        background: rgb(207, 207, 207);
+        color: #000;
+        outline: none;
+        height: 30px;
+        margin-bottom: 20px;
+        padding: 5px;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .not_yet {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
 <div class="col-md-12">
-  {% if active %}
-  <center>
-    <div style="color: #16e16e;font-size: 4vh;">
-      HUNT IS ACTIVE
+    {% if active %}
+    <center>
+        <div style="color: var(--green);font-size: 4vh;">
+            HUNT IS ACTIVE
+        </div>
+    </center>
+    <h2 class="standings-head" style="color: var(--green);">Leaderboard</h2>
+    <div>
+        <label style="color: #fff;" for="search_filter">Search:</label>
+        <input type="text" class="search_filter" id="search_filter">
     </div>
-  </center>
-  <h2 class="standings-head" style="color: #16e16e;">Standings</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr style="color: #aaa">
-        <th>Rank</th>
-        <th>Username</th>
-        <th>Level</th>
-      </tr>
-    </thead>
-{% for user in queryset %}
+    <table class="table table-striped" id="table_filter">
+        <thead>
+            <tr style="color: #fff">
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Level</th>
+            </tr>
+        </thead>
+        {% for user in queryset %}
 
-    <tbody>
-      <tr style="background-color: #101010; color: #efefef;">
-        <td>{{forloop.counter}}</td>
-        <td data-toggle="tooltip" title="{{user.profile.get_name}}"><span>{{user.username}}</span></td>
-        <td>{{user.profile.get_level}}</td>
-      </tr>
-  </tbody>
+        <tbody>
+            <tr style="background-color: var(--gray); color: var(--green);" class="table_content" id="{{forloop.counter}}">
+                <td>{{forloop.counter}}</td>
+                <td data-toggle="tooltip" title="{{user.profile.get_name}}"><span>{{user.username}}</span></td>
+                <td>{{user.profile.get_level}}</td>
+            </tr>
+        </tbody>
 
-{%endfor%}
-  </table>
-  {% else %}
-    <div style="color: #16e16e;font-size: 4vh;">
-      Leader board will be active once the hunt starts!
+        {%endfor%}
+    </table>
+    {% else %}
+    <div style="color: var(--green);font-size: 4vh;text-align:center" class="not_yet">
+        Leader board will be active once the hunt starts!
+        <p style="font-size: 5vh; color:#fff;" id="demo"></p>
     </div>
-  {% endif %}
+    {% endif %}
 </div>
 
 <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
+    $(document).ready(function() {
+
+        $('input#search_filter').on('change keyup paste', function() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("search_filter")
+            filter = input.value;
+            // console.log(filter, typeof(filter))
+            table = document.getElementById("table_filter")
+            tr = document.getElementsByClassName('table_content');
+            $('tr.table_content').addClass('hidden');
+            for (i = 0; i < tr.length; i++) {
+                console.log(tr[i].innerText);
+                if (tr[i].innerText.toLowerCase().indexOf(filter.toLowerCase()) != -1) {
+                    $('tr#' + tr[i].id).removeClass('hidden');
+                }
+            }
+        })
+
+        //Timer
+        var countDownDate = new Date("Dec 29, 2021 18:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 </script>
 
 

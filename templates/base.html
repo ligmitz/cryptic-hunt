@@ -14,12 +14,22 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'pg.png' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+     :root {
+        --gray: #808080;
+        --brown: #8c6144;
+        --green: #1a322d;
+    }
+    
     body {
         padding-top: 70px;
-        background-color: #000
+        background-color: var(--brown);
     }
     
     .img-responsive {
@@ -29,17 +39,17 @@
     .card {
         margin: 0 auto;
         box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.3);
-        background: #090909;
+        background: var(--gray);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        color: #efefef;
-        border: 1px solid #16e16e;
+        color: #fff;
+        border: 1px solid var(--gray);
         border-radius: 20px;
     }
     
     .question .title {
-        color: #16e16e;
+        color: var(--green);
     }
     
     .card-content {
@@ -47,7 +57,19 @@
     }
     
     .card-img {
-        width: 50%;
+        width: 100%;
+    }
+    
+    .card-img img {
+        width: 70%;
+        max-width: 600px;
+        max-height: 500px;
+    }
+    
+    .complete {
+        margin-top: 30px;
+        width: 40%;
+        min-width: 300px;
     }
     
     .card-hint {
@@ -86,7 +108,7 @@
     .navbar-text-common a:hover,
     .navbar-text-common a:active,
     .navbar-text-common a:focus {
-        background-color: #16e16e !important;
+        background-color: var(--gray) !important;
     }
     
     a:focus,
@@ -95,11 +117,11 @@
     }
     
     .navbar {
-        background-color: #000 !important;
+        background-color: #8c6144 !important;
     }
     
     .nav .open {
-        background-color: #16e16e !important;
+        background-color: var(--gray) !important;
     }
     
     .navbar-text-common .logout {
@@ -132,19 +154,28 @@
     }
     
     .form-control:focus {
-        border-color: #16e16e;
+        border-color: var(--gray);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(16, 225, 110, .6);
     }
     
     .btn-custom {
-        background-color: #16e16e;
-        border-color: #16e16e;
+        background-color: var(--gray);
+        border-color: var(--gray);
     }
     
     .btn-custom:hover {
-        background-color: #16e16e;
-        border-color: #16e16e;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(16, 225, 110, .6);
+        background-color: var(--gray);
+        border-color: var(--gray);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--green);
+    }
+    
+    .next_question_btn {
+        background-color: var(--green) !important;
+        border-color: var(--green);
+    }
+    
+    .next_question_btn:hover {
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--green);
     }
     
     .rules {
@@ -153,11 +184,12 @@
     }
     
     .navbar-brand {
-        color: #16e16e !important;
+        color: #ffffff !important;
+        font-size: 1.4vw;
     }
     
     .navbar-brand:hover {
-        color: #0082af !important;
+        color: var(--green) !important;
     }
     
     .home {
@@ -170,7 +202,7 @@
     
     .cryptic-title {
         margin-top: 50px;
-        color: #16e16e;
+        color: var(--gray);
         font-size: 5vh;
         text-align: center;
     }
@@ -194,11 +226,11 @@
     }
     
     .general-links {
-        color: #0082af;
+        color: var(--green);
     }
     
     .general-links:hover {
-        color: #0072ab !important;
+        color: var(--green) !important;
         text-decoration: none;
     }
     
@@ -259,7 +291,6 @@
             {% endfor %} {% endif %} {% block content %} {%endblock%}
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{% static 'js/message.js' %}"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->

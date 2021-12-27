@@ -1,29 +1,26 @@
-{% extends "base.html" %} {% block title %} Abhedya - level {{level.level_id}} {% endblock %} {% block content %} {% load crispy_forms_tags %}
-{% if cleared %}
-<div class="col-md-12">
-	<h2 style="color: #16e16e;"> Congratulations ! </h2>
-	<hr>
-	<p class="rules">
-		You have cleared all the levels.
-	</p>
+{% extends "base.html" %} {% block title %} Abhedya - level {{level.level_id}} {% endblock %} {% block content %} {% load crispy_forms_tags %} {% if cleared %}
+<div class="col-md-12" style="text-align: center;">
+    <h2 style="color: var(--green);text-align:center"> Congratulations 🎉! </h2>
+    <hr>
+    <p class="rules" style="font-size:20px;text-align:center;">
+        You have cleared all the levels.
+    </p>
+    <img src="https://c.tenor.com/pS_wARVlR8kAAAAM/well-done-despicable-me.gif" alt="" class="complete">
 </div>
 {% else %}
 <div class="card">
     <div class="question">
-    	<div class="title"> Level {{level.level_id}} </div>
+        <div class="title"> Level {{level.level_id}} </div>
         <div class="sub-title"> {{level.question}} </div>
         {% if level.image.url is not None %}
         <div class="card-img"> <img src={{level.image.url}} class="img-responsive"> </div>
-        {% endif %}
-        {% if level.hint is not None %}
-        <div class="card-hint"> <span style="color: #16e16e">Hint:</span> {{level.hint}}</div>
+        {% endif %} {% if level.hint is not None %}
+        <div class="card-hint"> <span style="color: var(--green)">Hint:</span> {{level.hint}}</div>
         {% endif %}
         <form method="POST" action=""> {% csrf_token %} {{form|crispy}}
-            <input type="submit" value="SUBMIT" name="" class="btn btn-primary btn-custom">
+            <input type="submit" value="SUBMIT" name="" class="btn btn-primary next_question_btn">
         </form>
     </div>
-    
-    </div>
-{% endif %}
 
-{% endblock %}
+</div>
+{% endif %} {% endblock %}
