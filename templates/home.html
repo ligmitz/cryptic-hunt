@@ -1,11 +1,25 @@
 {% extends "base.html" %} {% load static %} {% block title %} Abhedya - Home {%endblock%} {% block content %}
 <style>
+
     h1.cryptic-title {
         font-family: 'Mystery Quest', cursive;
         font-size: 10vh;
         color: #fff;
-        text-shadow: 1px 5px 5px #000;
+        text-shadow: 2px 20px 20px #000;
     }
+
+    h1.cryptic-title:hover {
+        cursor: pointer;
+    }
+
+    .content {
+        margin-top: 20px;
+        border: 2px solid #013f11;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
 </style>
 <div class="container">
     <div class="home">
@@ -15,23 +29,28 @@
         <h1 class="cryptic-title" id="cryptic-title">
             Chakravyou
         </h1>
-        <ul type="dot" class="guidelines">
-            <li>
-                Use of desktop/laptop is recommended.
-            </li>
-            <li>
-                The levels vary on degree of difficulty.
-            </li>
-            <li>
-                The quiz will remain active from 29th Dec, 2021 1800 hrs to 1st Jan, 2022 0000 hrs.
-            </li>
-            <li>
-                The leaderboard will be used as a standard for judgement criteria.
-            </li>
-            <li>
-                Navigate to <a href="/hunt/" class="general-links">hunt</a> for attempting chakravyou.
-            </li>
-        </ul>
+        <div class="content">
+            <ul type="dot" class="guidelines">
+                <li>
+                    Use of desktop/laptop is recommended.
+                </li>
+                <li>
+                    The levels vary on degree of difficulty.
+                </li>
+                <li>
+                    The Hunt will begin on 29<sup>th</sup> December, 6 PM.
+                </li>
+                <li>
+                    The leaderboard will be used as a standard for judgement criteria.
+                </li>
+                <li>
+                    Carefully follow the rules and regulations.
+                </li>
+                <li>
+                    Start playing <a href="/hunt/" class="general-links"><strong>Chakravyou</strong>.</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 

@@ -28,7 +28,7 @@
     {% if active %}
     <center>
         <div style="color: var(--green);font-size: 4vh;">
-            HUNT IS ACTIVE
+            THE GAME IS ON!
         </div>
     </center>
     <h2 class="standings-head" style="color: var(--green);">Leaderboard</h2>
@@ -40,7 +40,7 @@
         <thead>
             <tr style="color: #fff">
                 <th>Rank</th>
-                <th>Username</th>
+                <th>UserName</th>
                 <th>Level</th>
             </tr>
         </thead>
@@ -102,7 +102,7 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Output the result in an element with id="demo"
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+            document.getElementById("demo").innerHTML = days + "d " + hours + "hr " +
                 minutes + "m " + seconds + "s ";
 
             // If the count down is over, write some text 
