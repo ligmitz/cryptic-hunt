@@ -15,4 +15,4 @@ class ProfileAdminModel(admin.ModelAdmin):
 	class Meta:
 		model = Profile
 
-admin.site.register(Profile, ProfileAdminModel)
+admin.site.register(Profile, ProfileAdminModel)	
