@@ -1,10 +1,18 @@
-{% extends "base.html" %} 
-{% block title %} Abhedya - quiz {% endblock %}
-
-{% block content %}
-<div class="rules">
-    <span style="font-size:large;">The hunt is scheduled from {{ publish_time|date:"D j M Y"}}, {{ publish_time|time:"g:i:s a"}} to
-        {{ deactivate_time|date:"D j M Y"}}, {{ deactivate_time|time:"g:i:s a"}}
+{% extends "base.html" %} {% block title %} Abhedya - quiz {% endblock %} {% block content %}
+<style>
+    div.wait {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 25px;
+    }
+</style>
+<div class="rules wait">
+    <span>The hunt is scheduled from {{ publish_time|date:"D j M Y "}}, {{ publish_time|time:"g:i:s a "}} to
+        {{ deactivate_time|date:"D j M Y "}}, {{ deactivate_time|time:"g:i:s a "}}
     </span>
 </div>
 {%endblock%}
