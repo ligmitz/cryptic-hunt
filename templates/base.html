@@ -209,6 +209,12 @@
         text-align: center;
     }
     
+    @media screen and (max-width:486px) {
+        .cryptic-title {
+            font-size: 15vw !important;
+        }
+    }
+    
     .home .guidelines {
         margin-top: 20px;
         display: flex;
@@ -234,14 +240,6 @@
     .general-links:hover {
         color: var(--green) !important;
         text-decoration: none;
-    }
-    
-    footer.footer {
-        display: flex;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        justify-content: space-between;
     }
     
     footer.footer a {
@@ -274,7 +272,7 @@
                     <span class="icon-bar" style="background-color: black"></span>
                     <span class="icon-bar" style="background-color: black"></span>
                 </button>
-                <a class="navbar-brand navbar-text-brand" href="/">Prarambh 2K21</a>
+                <a class="navbar-brand navbar-text-brand" href="/">ISTE Presents</a>
             </div>
 
             <div id="navbar" class="collapse navbar-collapse">
@@ -309,10 +307,6 @@
             {% endfor %} {% endif %} {% block content %} {%endblock%}
         </div>
     </div>
-    <footer class="footer">
-        <p>For Technical query: <a href="https://wa.me/911682099468" target="_blank">911682099468</a></p>
-        <p>For Doubt in questions: <a href="https://wa.me/8894957166" target="_blank">8894957166</a></p>
-    </footer>
     <script src="{% static 'js/message.js' %}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
