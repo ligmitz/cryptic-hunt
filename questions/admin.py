@@ -7,7 +7,7 @@ class LevelModelAdmin(admin.ModelAdmin):
 	""" Admin Model """
 
 	# Things to display
-	list_display = ["level_id", "title", "question"]
+	list_display = ["level_id","answer","hint","question"]
 
 	# Search Fields
 	search_fields = ["level_id", "question"]

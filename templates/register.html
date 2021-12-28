@@ -2,11 +2,6 @@
 <h2>Register</h2>
 <hr>
 <form method="POST" action=""> {% csrf_token %} {{form|crispy}}
-    <input type="submit" onclick="google_reminder()" value="submit" name="" class="btn btn-primary next_question_btn">
-    <script>
-        function google_reminder() {
-            window.location.href = "https://calendar.google.com/event?action=TEMPLATE&tmeid=MGFjbWdtcm9jazRjbHB2M25kdXZkN2J1bDcgMjBibWEwMjZAbml0aC5hYy5pbg&tmsrc=20bma026%40nith.ac.in";
-        }
-    </script>
+    <input type="submit" value="submit" name="" class="btn btn-primary next_question_btn">
 </form>
 {%endblock%}
