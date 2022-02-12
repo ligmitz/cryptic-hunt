@@ -33,7 +33,7 @@ def register(request):
 			user.profile.phoneNumber = form.cleaned_data.get('phoneNumber')
 			user.is_active=False
 			user.save()
-			raw_password = form.cleaned_data.get('password1')
+			# raw_password = form.cleaned_data.get('password1')
 			current_site = get_current_site(request)
 			mail_subject = 'Activate your account.'
 			message = render_to_string('email_template.html', {
@@ -44,7 +44,7 @@ def register(request):
                         })
 
 			to_email = form.cleaned_data.get('email')
-			send_mail(mail_subject, message, 'youremail', [to_email])
+			send_mail(mail_subject, message, 'abhedya.iste@gmail.com', [to_email])
 			return  HttpResponse('Please confirm your email address to complete the registration')
 		# else:
   #      		 form = SignUpForm()
