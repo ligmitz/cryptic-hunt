@@ -13,30 +13,32 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.urls import path 
+from django.urls import path
+from django.urls.conf import include 
 from django.contrib import admin
-from accounts.views import register, leaderboard, home, rules
+from accounts.views import leaderboard, home, rules, register, activate
 from questions.views import Hunt
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-
+app_name = "accounts"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/',register, name="register"),
     path('leaderboard/',leaderboard, name="leaderboard"),
     path('hunt/',Hunt.as_view(), name='hunt'),
-    path('login/', auth_views.LoginView.as_view(
-        redirect_authenticated_user=True, template_name = 'login.html'),
-        name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name = 'home.html'),
-        name='logout'),
+    path('login/', auth_views.LoginView.as_view(redirect_authenticated_user=True, template_name = 'login.html'),name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name = 'home.html'),name='logout'),
     path('',home, name='home'),
-    path('rules/',rules, name="rules")
-
+    path('rules/',rules, name="rules"),
+    path("password-reset/", auth_views.PasswordResetView.as_view(template_name='user/password_reset.html'), name="password_reset"), 
+    path("password-reset/done/", auth_views.PasswordResetDoneView.as_view(template_name='user/password_reset_done.html'), name="password_reset_done"),
+    path("password-reset-confirm/<uidb64>/<token>/", auth_views.PasswordResetConfirmView.as_view(template_name='user/password_reset_confirm.html'), name="password_reset_confirm"),
+    path("password-reset-complete/", auth_views.PasswordResetCompleteView.as_view(template_name='user/password_reset_complete.html'), name="password_reset_complete"),
+    path('emailVerification/<uidb64>/<token>',activate, name='emailActivate')
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
