@@ -7,7 +7,6 @@ from django.db import models
 
 from questions.models import Level
 # Create your models here.
-
 class Profile(models.Model):
 	""" A Model Representing a User """
 

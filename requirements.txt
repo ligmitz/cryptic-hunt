@@ -15,3 +15,4 @@ six
 sqlparse
 toml
 wrapt
+django-utils-six
