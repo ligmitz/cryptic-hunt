@@ -7,7 +7,6 @@ def hunt_is_active(function):
     def wrap(request, *args, **kwargs):
         cur_user = request.user
         active = is_active_period()
-
         if cur_user.is_staff:
             return function(request, *args, **kwargs)
         else:
