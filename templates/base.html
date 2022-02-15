@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Chakravyou</title>
+    <title>Abhedya 2.0</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="shortcut icon" type="image/png" href="{% static 'pg.png' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <style>
@@ -29,9 +30,17 @@
     
     body {
         padding-top: 70px;
-        background-color: var(--brown);
+        background-image: url("static/images/home_bg2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: var(--green);
+
     }
-    
+
+    nav{
+        padding: 2.6% 3% 2%;
+    }
+
     .img-responsive {
         margin: 0 auto;
     }
@@ -94,32 +103,40 @@
         margin-bottom: 10px;
         font-size: 1.25em;
     }
-    
+
+    .nav-section{
+        padding:5% 2% 7%;
+        background-color: #fff;
+    }
+
     .navbar-text-brand {
         color: white;
         font-weight: 900;
-        font-family: 'Montserrat', sans-serif;
+        font-size: 3rem;
+        font-family: 'Orbitron', sans-serif;
     }
     
     .navbar-text-common a {
         color: white;
         font-weight: 600;
-        font-family: 'Montserrat', sans-serif;
+        font-size: 2.3rem;
+        font-family: 'Orbitron', sans-serif;
     }
     
     .navbar-text-common a:hover,
     .navbar-text-common a:active,
     .navbar-text-common a:focus {
-        background-color: var(--gray) !important;
+        background-color: var(--green) !important;
     }
     
     a:focus,
     a:hover {
         color: white !important;
     }
-    
+
+
     .navbar {
-        background-color: #8c6144 !important;
+        backdrop-filter: blur(1px);
     }
     
     .nav .open {
@@ -187,11 +204,11 @@
     
     .navbar-brand {
         color: #ffffff !important;
-        font-size: 20px;
+        font-size: 3rem;
     }
     
     .navbar-brand:hover {
-        color: var(--green) !important;
+        color:  !important;
     }
     
     .home {
@@ -199,7 +216,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 5%;
+        margin-top: 2%;
+
     }
     
     .cryptic-title {
@@ -234,11 +252,12 @@
     }
     
     .general-links {
-        color: var(--green);
+        color: var(--white);
+        font-size: 3rem;
     }
     
     .general-links:hover {
-        color: var(--green) !important;
+        color: var(--gray) !important;
         text-decoration: none;
     }
     
@@ -259,15 +278,26 @@
         width: 100%;
         height: 100px;
     }
+    .content{
+    backdrop-filter: blur(8px);
+    padding:3% 10% 5%;
+
+    }
+    .home{
+        padding: 5% 3% 10%;
+    }
+
 </style>
 
 <body>
     <!-- Fixed navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" style="background-color: white">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only"><i class="fa-regular fa-circle-caret-down">Toggle navigation</i></span>
+
                     <span class="icon-bar" style="background-color: black"></span>
                     <span class="icon-bar" style="background-color: black"></span>
                     <span class="icon-bar" style="background-color: black"></span>
@@ -298,6 +328,7 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
         <div class="row">
             {% if messages %} {% for message in messages %}
@@ -309,6 +340,7 @@
     </div>
     <script src="{% static 'js/message.js' %}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
