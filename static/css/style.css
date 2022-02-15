@@ -2,7 +2,9 @@
 
 body {
   padding-top: 70px;
-  background-color: #000
+  background-color: #000;
+  background-image: url("static/ images/home_bg.png");
+  background-repeat: no-repeat;
 }
 
 .img-responsive {
@@ -178,8 +180,9 @@ a:focus,a:hover {
 }
 
 
+
 .general-links {
-	color: #0082af;
+	color: #fff;
 }
 
 .general-links:hover {
