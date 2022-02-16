@@ -1,14 +1,41 @@
 {% extends "base.html" %} {% block title %} Abhedya - rules {%endblock%} {% block content %}
+<style>
+
+    h2{
+        color: var(--green); font-size: 5rem;
+        font-family: 'Orbitron', sans-serif;
+      }
+
+     #rules-sec{
+        padding: 5% 16% 7%;
+
+    }
+    .rules{
+            padding: 5%;
+            backdrop-filter: blur(8px);
+            border-radius: 5%;
+    }
+
+    .li-link{
+        color: var(--white);
+    }
+    .li-link:hover{
+        color: yellow;
+        text-decoration: none;
+        font-size: 3rem;
+    }
+</style>
 <div class="col-md-12">
-    <h2 style="color: var(--green);"> Rules </h2>
-    <hr>
+    <section id="rules-sec">
     <div class="rules">
+        <h2 style="color: var(--green);"> Rules </h2>
+    <hr>
         <ul type="dot" class="guidelines">
             <li>
                 The <strong>Hunt</strong> will begin on 29<sup>th</sup> December, 2021 6 PM.
             </li>
             <li>
-                The username for registration should be of the following format <strong>rollNo_name</strong>. <span style="color:var(--green);"><br>Eg: 20bcs102_deepak.</span>
+                The username for registration should be of the following format <strong>rollNo_name</strong>. <br>Eg: 20bcs102_deepak.
             </li>
             <li>
                 Use the institute email address for registration.
@@ -20,13 +47,16 @@
                 The winners will be the ones who finish at the earliest.
             </li>
             <li>
-                For any queries: <a href="https://wa.me/918894957166" target="_blank" style="color: var(--green);">8894957166</a> </li>
+                For any queries: <a href="https://wa.me/918894957166" target="_blank" class="li-link">8894957166</a> </li>
 
             <li>
                 Please read the storyline and questions very carefully.
             </li>
         </ul>
     </div>
+</section>
+
 </div>
 
 {%endblock%}
+
