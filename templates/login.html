@@ -6,6 +6,6 @@
     {% csrf_token %} {{ form|crispy }}
     <button type="submit" class="btn btn-primary next_question_btn">Login</button>
 </form>
-<p style="padding-top: 10px; color: #efefef">Don't have any account ? <a href="/register/" style="color: var(--green);"> Register </a> </p>
-<p style="padding-top: 10px; color: #efefef">Forgot Password ?  <a href="{% url 'password_reset' %}" style="color: var(--green);">click Here</a> </p>
+<p style="padding-top: 10px; color: #efefef">Don't have any account ? <a href="/register/" style="color: white;"> Register </a> </p>
+<p style="padding-top: 10px; color: #efefef">Forgot Password ?  <a href="{% url 'password_reset' %}" style="color: white;">click Here</a> </p>
 {%endblock%}

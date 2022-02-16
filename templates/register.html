@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %} Abhedya - register {% endblock %} {% block content %} {% load crispy_forms_tags %}
 <h2>Register</h2>
 <hr>
-<form method="POST" action=""> {% csrf_token %} {{form|crispy}}
+<form method="POST" action="" class="register"> {% csrf_token %} {{form|crispy}}
     <input type="submit" value="submit" name="" class="btn btn-primary next_question_btn">
 </form>
 {%endblock%}
