@@ -1,46 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Abhedya 2.0</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="shortcut icon" type="image/png" href="{% static 'pg.png' %}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</head>
-<style>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Abhedya 2.0</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="shortcut icon" type="image/png" href="{% static 'pg.png' %}">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous"
+        >
+        <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-     :root {
+    :root {
         --gray: #808080;
         --brown: #8c6144;
         --green: #1a322d;
     }
     
     body {
-        padding-top: 70px;
-        background-image: url("static/images/home_bg2.jpg");
+        padding-top: 1%;
         background-repeat: no-repeat;
         background-size: cover;
         background-color: var(--green);
+        overflow: hidden;
 
     }
 
-    nav{
-        padding: 2.6% 3% 2%;
+    .background{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: -999;
     }
-
+    .background img{
+        width: 100%;
+    }
     .img-responsive {
         margin: 0 auto;
     }
@@ -48,17 +58,29 @@
     .card {
         margin: 0 auto;
         box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.3);
-        background: var(--gray);
+        backdrop-filter: blur(8px);
         display: flex;
         flex-direction: column;
         justify-content: center;
         color: #fff;
         border: 1px solid var(--gray);
         border-radius: 20px;
+        height: 89vh;
+        overflow-y: scroll;
+
+    }
+    .card::-webkit-scrollbar {
+        width: 0.5em;
+        height: 0.5em;
+    }
+    
+    .card::-webkit-scrollbar-thumb {
+        background-color: rgba(255,255,255,.1);
+        border-radius: 3px;
     }
     
     .question .title {
-        color: var(--green);
+        color: whitesmoke;
     }
     
     .card-content {
@@ -110,7 +132,6 @@
     }
 
     .navbar-text-brand {
-        color: white;
         font-weight: 900;
         font-size: 3rem;
         font-family: 'Orbitron', sans-serif;
@@ -121,22 +142,12 @@
         font-weight: 600;
         font-size: 2.3rem;
         font-family: 'Orbitron', sans-serif;
+
     }
     
-    .navbar-text-common a:hover,
-    .navbar-text-common a:active,
-    .navbar-text-common a:focus {
-        background-color: var(--green) !important;
-    }
-    
-    a:focus,
-    a:hover {
-        color: white !important;
-    }
-
-
-    .navbar {
-        backdrop-filter: blur(1px);
+    .navbar-text-common li a:hover,
+    .navbar-text-common li a:focus{
+       background-color: #e0c9a636!important;
     }
     
     .nav .open {
@@ -176,7 +187,35 @@
         border-color: var(--gray);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--green);
     }
+    form input[type='text'],
+    form input[type='password'],
+    form input[type='email'],
+    form input[type='number']{
+        background-color: rgb(218, 218, 218)!important;
+        color: #1a322d!important;
+    }
+
+    form,
+    form div{
+        color:white!important;
+    }
+    h2{
+        color: white!important;
+    }
+    .register{
+        height:70vh;
+        overflow-y: scroll;
+        padding-bottom: 10px;
+    }
+    .register::-webkit-scrollbar {
+        width: 0.5em;
+        height: 0.5em;
+    }
     
+    .register::-webkit-scrollbar-thumb {
+        background-color: rgba(255,255,255,.1);
+        border-radius: 3px;
+    }
     .btn-custom {
         background-color: var(--gray);
         border-color: var(--gray);
@@ -207,17 +246,12 @@
         font-size: 3rem;
     }
     
-    .navbar-brand:hover {
-        color:  !important;
-    }
-    
     .home {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-top: 2%;
-
     }
     
     .cryptic-title {
@@ -281,66 +315,87 @@
     .content{
     backdrop-filter: blur(8px);
     padding:3% 10% 5%;
-
     }
     .home{
         padding: 5% 3% 10%;
     }
-
-</style>
-
-<body>
-    <!-- Fixed navbar -->
-
-    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+    </style>
+    <body>
+        <!-- Fixed navbar -->
+        <div class="background">
+            <img src="https://thumbs.dreamstime.com/b/old-map-vintage-travel-equipment-expedition-concept-treasure-hunt-old-map-vintage-travel-equipment-expedition-concept-133932664.jpg" alt="">
+        </div>
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button
+                        type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target="#navbar"
+                        style="background-color: white"
+                    >
+                        <span class="sr-only">
+                            <i class="fa-regular fa-circle-caret-down">Toggle navigation</i>
+                        </span>
+                        <span class="icon-bar" style="background-color: black"></span>
+                        <span class="icon-bar" style="background-color: black"></span>
+                        <span class="icon-bar" style="background-color: black"></span>
+                    </button>
+                    <a class="navbar-brand navbar-text-brand" href="/">ISTE Presents</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-text-common">
+                        <li>
+                            <a href="/hunt/">Hunt</a>
+                        </li>
+                        <li>
+                            <a href="/rules/">Rules</a>
+                        </li>
+                        <li>
+                            <a href="/leaderboard/">Leaderboard</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right navbar-text-common">
+                        <!--<li><a href="#about">Facebook Page</a></li>-->
+                        {% if user.is_authenticated %}
+                        <li class="dropdown">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >{{user.username}}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu navbar-text-common">
+                                <li class="logout">
+                                    <a href="/logout">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="/login/">Login</a>
+                        </li>
+                        {%endif%}
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" style="background-color: white">
-                    <span class="sr-only"><i class="fa-regular fa-circle-caret-down">Toggle navigation</i></span>
+            <div class="row">
+                {% if messages %} {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" id="alert">
+                    {{ message }}
+                </div>
+                {% endfor %} {% endif %} {% block content %} {%endblock%}
 
-                    <span class="icon-bar" style="background-color: black"></span>
-                    <span class="icon-bar" style="background-color: black"></span>
-                    <span class="icon-bar" style="background-color: black"></span>
-                </button>
-                <a class="navbar-brand navbar-text-brand" href="/">ISTE Presents</a>
-            </div>
-
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-text-common">
-                    <li><a href="/hunt/">Hunt</a></li>
-                    <li><a href="/rules/">Rules</a></li>
-                    <li><a href="/leaderboard/">Leaderboard</a></li>
-
-                </ul>
-                <ul class="nav navbar-nav navbar-right navbar-text-common">
-                    <!--<li><a href="#about">Facebook Page</a></li>-->
-                    {% if user.is_authenticated %}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}} <span class="caret"></span></a>
-                        <ul class="dropdown-menu navbar-text-common">
-                            <li class="logout"><a href="/logout">Logout</a></li>
-                        </ul>
-                    </li>
-                    {% else %}
-                    <li><a href="/login/">Login</a></li>
-                    {%endif%}
-                </ul>
             </div>
         </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            {% if messages %} {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" id="alert">
-                {{ message }}
-            </div>
-            {% endfor %} {% endif %} {% block content %} {%endblock%}
-        </div>
-    </div>
-    <script src="{% static 'js/message.js' %}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-</body>
-
+        <script src="{% static 'js/message.js' %}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
 </html>
