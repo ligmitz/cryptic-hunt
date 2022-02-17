@@ -25,7 +25,9 @@
 
 </section>
 <hr>
-
+<form method="POST" action="" class="register"> {% csrf_token %} {{form|crispy}}
+    <input type="submit" value="submit" name="" class="btn btn-primary btn-lg "next_question_btn">
+</form>
 {%endblock%}
 
 
