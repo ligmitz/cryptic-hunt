@@ -1,18 +1,14 @@
 from django.contrib import messages
-from django.contrib.auth import login
+#from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
-from django.urls import reverse_lazy
-from django.contrib.auth.views import PasswordResetView
-from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail.message import EmailMultiAlternatives
 from django.shortcuts import  redirect, render
 from django.utils.encoding import force_str, force_bytes
-# from django.urls import reverse
 from django.contrib.sites.shortcuts import get_current_site
 from .forms import SignUpForm
 from .tokens import account_activation_token
-from django.core.mail import send_mail
+#from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.http import HttpResponse, request
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -49,7 +45,7 @@ def register(request):
                     'domain': current_site.domain,
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                     'token': account_activation_token.make_token(user),
-}
+            }
 			from_email, to = 'abhedya.iste@gmail.com', email
 			html_content=htmly.render(cunt)
 			msg=EmailMultiAlternatives(mail_subject, html_content, from_email, [to])
