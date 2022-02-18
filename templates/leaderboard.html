@@ -47,7 +47,7 @@
         {% for user in queryset %}
 
         <tbody>
-            <tr style="background-color: var(--gray); color: var(--green);" class="table_content" id="{{forloop.counter}}">
+            <tr style=" background-color: var(--gray); color:#ffffff;" class="table_content" id="{{forloop.counter}}">
                 <td>{{forloop.counter}}</td>
                 <td data-toggle="tooltip" title="{{user.profile.get_name}}"><span>{{user.username}}</span></td>
                 <td>{{user.profile.get_level}}</td>
@@ -57,7 +57,7 @@
         {%endfor%}
     </table>
     {% else %}
-    <div style="color: var(--green);font-size: 4vh;text-align:center" class="not_yet">
+    <div style="backdrop-filter:blur(10px); padding:10px 10px 10px 10px; border-radius:15px; color:#ffffff; font-size: 4vh;text-align:center" class="not_yet">
         Leader board will be active once the hunt starts!
         <p style="font-size: 5vh; color:#fff;" id="demo"></p>
     </div>
@@ -84,7 +84,7 @@
         })
 
         //Timer
-        var countDownDate = new Date("Feb 28, 2022 18:00:00").getTime();
+        var countDownDate = new Date("Feb 24, 2022 18:00:00").getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function() {
